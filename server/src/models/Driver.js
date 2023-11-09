@@ -8,5 +8,9 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    id: {
+      type: DataTypes.INTEGER,
+      unique: true,
+    }
   });
 };
