@@ -11,6 +11,11 @@ module.exports = (sequelize) => {
     id: {
       type: DataTypes.INTEGER,
       unique: true,
-    }
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    number: {
+      type: DataTypes.INTEGER,
+    }  
   });
 };
