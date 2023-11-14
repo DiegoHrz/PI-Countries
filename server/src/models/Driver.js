@@ -3,23 +3,25 @@ const { DataTypes } = require("sequelize");
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define("Driver", {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
+  sequelize.define(
+    "Driver",
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        unique: true,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      name: {
+        type: DataTypes.OBJECT(DataTypes.STRING),
+        allowNull: false,
+        requires: true,
+      },
+      image:{},
+      dob:{},
+      nationality:{},
+      description:{},
     },
-    id: {
-      type: DataTypes.INTEGER,
-      unique: true,
-      autoIncrement: true,
-      primaryKey: true,
-    },
-    number: {
-      type: DataTypes.INTEGER,
-      unique: true,
-      allowNull: true,
-    },
-  },
-  {timestamps: false}
+    { timestamps: false }
   );
 };
