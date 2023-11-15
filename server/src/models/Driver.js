@@ -7,20 +7,22 @@ module.exports = (sequelize) => {
     "Driver",
     {
       id: {
+        //type: DataTypes.UUID
         type: DataTypes.INTEGER,
         unique: true,
         autoIncrement: true,
         primaryKey: true,
+        defaultValue: 0,
       },
       name: {
         type: DataTypes.OBJECT(DataTypes.STRING),
         allowNull: false,
         requires: true,
       },
-      image:{},
-      dob:{},
-      nationality:{},
-      description:{},
+      image: {},
+      dob: {},
+      nationality: {},
+      description: {},
     },
     { timestamps: false }
   );

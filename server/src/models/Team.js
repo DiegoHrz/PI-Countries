@@ -4,5 +4,5 @@ module.exports = (sequelize) =>{
     sequelize.define("Team",{
         id:{},
         nombre:{}
-    },{})
+    },{ timestamps: false })
 }
