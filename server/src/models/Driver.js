@@ -8,21 +8,43 @@ module.exports = (sequelize) => {
     {
       id: {
         //type: DataTypes.UUID
+        // type: DataTypes.UUID,
         type: DataTypes.INTEGER,
         unique: true,
-        autoIncrement: true,
         primaryKey: true,
-        defaultValue: 0,
+        // defaultValue: DataTypes.UUIDV4,
       },
+      driverRef:{
+        type: DataTypes.STRING
+      },
+      number:{
+        type: DataTypes.INTEGER,
+        allowNull: true
+      },
+      code:{
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      //NOMBRE Y APELLIDO
       name: {
-        type: DataTypes.OBJECT(DataTypes.STRING),
+        type: DataTypes.JSON,
         allowNull: false,
-        requires: true,
       },
-      image: {},
-      dob: {},
-      nationality: {},
-      description: {},
+      //IMAGEN
+      image: { type: DataTypes.JSON, allowNull: false, defaultValue: "https://w0.peakpx.com/wallpaper/356/649/HD-wallpaper-f1-logo-neon-car-championship-formula-formula-1-one-racing.jpg" },
+      //FECHA DE NACIMIENTO
+      dob: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      //NACIONALIDAD
+      nationality: {
+        type: DataTypes.STRING,
+      },
+      //DESCRIPCION
+      description: {
+        type: DataTypes.TEXT,
+      },
     },
     { timestamps: false }
   );

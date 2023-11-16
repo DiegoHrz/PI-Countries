@@ -1,8 +1,27 @@
 const { DataTypes, Sequelize } = require("sequelize");
 
-module.exports = (sequelize) =>{
-    sequelize.define("Team",{
-        id:{},
-        nombre:{}
-    },{ timestamps: false })
-}
+module.exports = (sequelize) => {
+  sequelize.define(
+    "Team",
+    {
+      id: {
+        //UNIQUE UNIFIED IDENTIFIER
+        type: DataTypes.UUID,
+        primaryKey: true,
+        //UNIQUE UNIFIED IDENTIFIER VERSION 4 VALUE
+        defaultValue: DataTypes.UUIDV4,
+      },
+      nombre: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: {
+            args: [3, 16],
+            msg: "El nombre de estar entre 4 y 15 caracteres",
+          },
+        },
+      },
+    },
+    { timestamps: false }
+  );
+};
