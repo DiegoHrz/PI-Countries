@@ -9,6 +9,7 @@ server.use(morgan("dev"));
 server.use(express.json());
 server.use(cors());
 
-server.use(router);
+//rutas a utilizar
+server.use(router);     // localhost:3001/
 
 module.exports = server;
