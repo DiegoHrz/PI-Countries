@@ -2,9 +2,9 @@ const { Router } = require("express");
 
 const teamsRoute = Router();
 
-teamsRoute.get("/", (req, res) => {
+teamsRoute.get("/", async (req, res) => {
   try {
-    res.status(200).json();
+    await res.status(200).send("Todo bueno");
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
