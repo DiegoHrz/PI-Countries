@@ -3,7 +3,7 @@ const { Driver } = require("../db");
 
 const driverController = require("../controllers/driverController");
 const driversRoute = Router();
-const {get, getId, getName, post} = driverController;
+const { get, getId, getName, post } = driverController;
 
 //📍endpoint y controller
 
