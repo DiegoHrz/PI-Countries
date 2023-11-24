@@ -8,6 +8,7 @@ module.exports = (sequelize) => {
         //UNIQUE UNIFIED IDENTIFIER
         type: DataTypes.UUID,
         primaryKey: true,
+        allowNull: false,
         //UNIQUE UNIFIED IDENTIFIER VERSION 4 VALUE
         defaultValue: DataTypes.UUIDV4,
       },
@@ -22,6 +23,9 @@ module.exports = (sequelize) => {
         },
       },
     },
-    { timestamps: false }
+    {
+      timestamps: false,
+      frezeTableName: true,
+    }
   );
 };

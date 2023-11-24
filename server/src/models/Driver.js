@@ -9,8 +9,9 @@ module.exports = (sequelize) => {
       id: {
         //type: DataTypes.UUID
         type: DataTypes.INTEGER,
-        unique: true,
         primaryKey: true,
+        allowNull: false,
+        unique: true,
         // defaultValue: DataTypes.UUIDV4,
       },
       driverRef: {
@@ -50,6 +51,9 @@ module.exports = (sequelize) => {
         type: DataTypes.TEXT,
       },
     },
-    { timestamps: false }
+    {
+      timestamps: false,
+      frezeTableName: true, // evta que le ponga la s sequelize
+    }
   );
 };
