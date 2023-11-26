@@ -17,8 +17,8 @@ module.exports = (sequelize) => {
         allowNull: false,
         validate: {
           len: {
-            args: [3, 16],
-            msg: "El nombre de estar entre 4 y 15 caracteres",
+            args: [2, 16],
+            msg: "El nombre de estar entre 3 y 15 caracteres",
           },
         },
       },
