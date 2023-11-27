@@ -1,4 +1,4 @@
-const { Driver } = require("../db");
+const { Driver } = require("../../db");
 
 const driverController = {};
 
