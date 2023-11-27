@@ -1,13 +1,8 @@
 const { Router } = require("express");
-
+const teamsHandler = require("../handlers/teamHandlers/teamHandler");
+const { getTeamsHandler } = teamsHandler;
 const teamsRoute = Router();
 
-teamsRoute.get("/", async (req, res) => {
-  try {
-    await res.status(200).send("Todo bueno");
-  } catch (error) {
-    res.status(404).json({ error: error.message });
-  }
-});
+teamsRoute.get("/", getTeamsHandler);
 
 module.exports = teamsRoute;
