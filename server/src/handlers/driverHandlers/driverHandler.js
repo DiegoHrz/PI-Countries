@@ -1,8 +1,8 @@
 const { Driver } = require("../../db");
 
-const driverController = {};
+const driverHandler = {};
 
-driverController.get = async (req, res) => {
+driverHandler.getDrivers = async (req, res) => {
   try {
     const drivers = await Driver.findAll();
     res.status(200).json(drivers);
@@ -11,7 +11,7 @@ driverController.get = async (req, res) => {
   }
 };
 
-driverController.getId = async (req, res) => {
+driverHandler.getDriversById = async (req, res) => {
   try {
     res.status(200).send(":id:Driver");
   } catch (error) {
@@ -19,7 +19,7 @@ driverController.getId = async (req, res) => {
   }
 };
 
-driverController.getName = async (req, res) => {
+driverHandler.getDriversName = async (req, res) => {
   try {
     res.status(200).send("name");
   } catch (error) {
@@ -27,7 +27,7 @@ driverController.getName = async (req, res) => {
   }
 };
 
-driverController.post = async (req, res) => {
+driverHandler.postDrivers = async (req, res) => {
   try {
     res.status(200).send("post drivers");
   } catch (error) {
@@ -35,4 +35,4 @@ driverController.post = async (req, res) => {
   }
 };
 
-module.exports = driverController;
+module.exports = driverHandler;
