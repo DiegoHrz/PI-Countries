@@ -1,4 +1,3 @@
-const { Driver } = require("../../db");
 const {getDrivers, getDriversById, getDriversName, postDrivers} = require('../../controllers/driverController/driverController')
 
 const driverHandler = {};
@@ -6,7 +5,7 @@ const driverHandler = {};
 driverHandler.getDriversHandler = async (req, res) => {
   try {
     const response = await getDrivers()
-    res.status(200).json(drivers);
+    res.status(200).json(response);
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
@@ -14,8 +13,9 @@ driverHandler.getDriversHandler = async (req, res) => {
 
 driverHandler.getDriversByIdHandler = async (req, res) => {
   try {
-    const response = await getDriversById()
-    res.status(200).send(":id:Driver");
+    const {id} = req.params
+    const response = await getDriversById(id)
+    res.status(200).json(response);
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
@@ -23,8 +23,9 @@ driverHandler.getDriversByIdHandler = async (req, res) => {
 
 driverHandler.getDriversNameHandler = async (req, res) => {
   try {
-    const response = await getDriversName()
-    res.status(200).send("name");
+    const {name} = req.query
+    const response = await getDriversName(name)
+    res.status(200).json(response);
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
@@ -32,8 +33,9 @@ driverHandler.getDriversNameHandler = async (req, res) => {
 
 driverHandler.postDriversHandler = async (req, res) => {
   try {
+    const {} = req.body
     const response = await postDrivers()
-    res.status(200).send("post drivers");
+    res.status(200).json(response);
   } catch (error) {
     res.status(404).json({ error: error.message });
   }

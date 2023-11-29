@@ -13,7 +13,7 @@ const {
 
 driversRoute.get("/", getDriversHandler);
 
-driversRoute.get("/:id:Driver", getDriversByIdHandler);
+driversRoute.get("/:id", getDriversByIdHandler);
 
 driversRoute.get("/name", getDriversNameHandler);
 
