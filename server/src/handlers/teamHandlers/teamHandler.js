@@ -33,7 +33,6 @@ teamsHandler.getTeamsHandler = async (req, res) => {
     // Si la base de datos no está vacía, devuelve los equipos almacenados en ella
     return res.status(200).json(teamsFromDB);
   } catch (error) {
-    console.error(error);
     return res.status(400).json({ error: error.message });
   }
 };
